@@ -1,10 +1,13 @@
 package org.tester.core;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -52,6 +55,13 @@ public class UIActions {
 			}
 		}
 	}
+	
+	// Generic code for taking screenshot
+		public static byte[] capture(WebDriver driver) throws IOException {
+			TakesScreenshot ts = (TakesScreenshot) driver;
+			byte[] src= ts.getScreenshotAs(OutputType.BYTES);
+			return src;
+		}
 	
 	public static void assertion(String actualTitle,String expectedTitle)
 	{

@@ -1,10 +1,13 @@
 package org.tester.core;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Properties;
+
 import org.openqa.selenium.WebDriver;
 
+import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public abstract class BaseSetup {
@@ -69,7 +72,16 @@ public abstract class BaseSetup {
 			System.out.println("Error....." + e.getMessage() + e);
 		}
 	}
-	public static void tearDown() {
+	public static void failedscreenshot(Scenario scenario) throws IOException
+	{
+		if(scenario.isFailed())
+	    {			
+			byte[] screenShotPath = UIActions.capture(driver);
+			scenario.attach(screenShotPath, "image/png", "ErrorOccurred");
+		    
+	    }
+	}
+	public static void tearDown() { 
 		driver.quit();
 	}
 

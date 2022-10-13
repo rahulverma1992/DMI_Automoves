@@ -1,28 +1,38 @@
 package org.tester.stepdefinition;
 
+import java.io.IOException;
+
 import org.tester.core.BaseSetup;
 import org.tester.pagefactory.LoginPageFactory;
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Steps extends BaseSetup {
 	public LoginPageFactory objLoginPage;
+	
 	@Before
 	public void setup() {
 		BaseSetup.initializeTestBaseSetup();
 		objLoginPage= new LoginPageFactory(BaseSetup.driver);
 	}
+	@AfterStep
+	public void failedcasescreenshot(Scenario scenario) throws IOException
+	{
+		BaseSetup.failedscreenshot(scenario);
+	}
 	
-	
-
 	@After
 	public void quit() {
 		BaseSetup.tearDown();
+		
 	}
+	
 
 	@Given("User is on Webmate Login Page")
 	public void user_is_on_webmate_login_page() {
