@@ -31,7 +31,7 @@ public class UIActions {
 
 	// Generic code for Implicit wait
 	public static void implicitwait(WebDriver driver) {
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 
 	// Assert Item is displayed

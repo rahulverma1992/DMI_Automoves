@@ -19,7 +19,7 @@ public class LoginPageFactory {
 	@FindBy(how=How.CSS, using ="input[data-testing-id=\"login-passwordfield\"]")
 	WebElement password;
 	
-	@FindBy(how=How.CSS, using ="input[data-testing-id=\"login-submit-button\"]")
+	@FindBy(how=How.CSS, using ="button[data-testing-id=\"login-submit-button\"]")
 	WebElement signin;
 	
 	public LoginPageFactory(WebDriver driver) {
@@ -36,13 +36,13 @@ public class LoginPageFactory {
 	
 	public void verifyTitle(String actualTitle, String expectedTitle)
 	{
-		UIActions.implicitwait(driver);
 		UIActions.assertion(actualTitle,expectedTitle);
 	}
 	
 	public void signIn()
 	{
+		UIActions.fluentWait(signin, driver);
 		signin.click();
-		UIActions.implicitwait(driver);
+		
 	}
 }
