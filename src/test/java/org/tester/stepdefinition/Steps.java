@@ -54,14 +54,7 @@ public class Steps extends BaseSetup {
 		objLoginPage.signIn();
 	}
 	@Given("User is on Webmate Devices Page.")
-	public void user_is_on_webmate_devices_page1() throws InterruptedException {
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//input[contains(@data-testing-id,'login-userfield')]")).sendKeys("sudkumar@dminc.com");
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//input[contains(@data-testing-id,'login-passwordfield')]")).sendKeys("Sudi1234");
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//button[contains(@data-testing-id,'login-submit-button')]")).click();
-		Thread.sleep(12000);
+	public void user_is_on_webmate_devices_page1() throws InterruptedException {		
 		DeskstopSlotFactory X= new DeskstopSlotFactory(driver);
 		X.HoverOverProject();
 		Thread.sleep(2000);
@@ -86,14 +79,6 @@ public class Steps extends BaseSetup {
 	}
 	@Given("User is on Webmate Devices Page..")
 	public void user_is_on_webmate_devices_page() throws InterruptedException {
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//input[contains(@data-testing-id,'login-userfield')]"))
-				.sendKeys("sudkumar@dminc.com");
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//input[contains(@data-testing-id,'login-passwordfield')]")).sendKeys("Sudi1234");
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//button[contains(@data-testing-id,'login-submit-button')]")).click();
-		Thread.sleep(12000);
 		SeleniumCapabilitiesFactory X = new SeleniumCapabilitiesFactory(driver);
 		X.HoverOverProject();
 		Thread.sleep(2000);
@@ -112,5 +97,6 @@ public class Steps extends BaseSetup {
 		X.SeleniumCapabilities();
 		Thread.sleep(2000);
 	}
+
 
 }
